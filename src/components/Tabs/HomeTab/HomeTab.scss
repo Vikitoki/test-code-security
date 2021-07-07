@@ -11,6 +11,10 @@
 
   transition: transform 0.3s ease;
 
+  &.active {
+    background-color: lightgreen;
+  }
+
   @media (min-width: $md2 + px) {
     &:hover {
       transform: scale(1.1);
@@ -25,5 +29,9 @@
     font-size: 21px;
     font-weight: 400;
     color: #fff;
+
+    &.active {
+      color: #333;
+    }
   }
 }

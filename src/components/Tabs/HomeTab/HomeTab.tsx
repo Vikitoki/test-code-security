@@ -3,10 +3,17 @@ import { FC } from "react";
 
 import "./HomeTab.scss";
 
-export const HomeTab: FC = () => {
+interface HomeTabProps {
+  name: string;
+  activeTab: boolean;
+}
+
+export const HomeTab: FC<HomeTabProps> = ({ name, activeTab }) => {
   return (
-    <button type="button" className="home-tab">
-      <span className="home-tab__text">Элемент 1</span>
+    <button type="button" className={`home-tab ${activeTab ? "active" : ""}`}>
+      <span className={`home-tab__text ${activeTab ? "active" : ""}`}>
+        {name}
+      </span>
     </button>
   );
 };

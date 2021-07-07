@@ -4,30 +4,52 @@ import { HomeTab } from "../../components/Tabs/HomeTab/HomeTab";
 import { HomeFormContainer } from "../../components/Form/FormContainers/HomeFormContainer";
 
 import "./HomePage.scss";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getHomeItems } from "../../services/rest/homeItemsActions";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 export const HomePage: FC = () => {
+  const dispatch = useDispatch();
+  const { error, homeList, loading } = useTypedSelector(
+    (state) => state.homeItems
+  );
+
+  useEffect(() => {
+    if (homeList.length === 0) {
+      dispatch(getHomeItems());
+    }
+  }, [dispatch, homeList.length]);
+
   return (
     <section className="home-page">
       <div className="home-page__container container">
         <h2 className="home-page__title">Список свойств и элементов</h2>
         <div className="home-page__content content-home-page">
-          <div className="content-home-page__main">
-            <div className="content-home-page__left">
-              <ul className="content-home-page__list">
-                <li>
-                  <HomeTab />
-                </li>
-                <li>
-                  <HomeTab />
-                </li>
-              </ul>
-            </div>
-            <div className="content-home-page__right">
-              <div className="content-home-page__form">
-                <HomeFormContainer />
+          {loading ? (
+            <span className="status-text">Загрузка данных...</span>
+          ) : error ? (
+            <span className="status-text">{error}</span>
+          ) : homeList.length !== 0 ? (
+            <div className="content-home-page__main">
+              <div className="content-home-page__left">
+                <ul className="content-home-page__list">
+                  {homeList.map((item) => {
+                    return (
+                      <li>
+                        <HomeTab activeTab name={item.name} />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <div className="content-home-page__right">
+                <div className="content-home-page__form">
+                  <HomeFormContainer />
+                </div>
               </div>
             </div>
-          </div>
+          ) : null}
         </div>
       </div>
     </section>
