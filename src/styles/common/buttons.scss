@@ -1,0 +1,36 @@
+@import "../default/variables.scss";
+
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding: 12px 41px;
+
+  font-size: 18px;
+  font-weight: 500;
+  font-weight: 400;
+
+  background: none;
+  border-radius: 25px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &_white-outline {
+    color: #fff;
+
+    border: 3px solid #fff;
+
+    @media (min-width: $md2 + px) {
+      &:hover {
+        background-color: #fff;
+        color: #333;
+      }
+
+      &:active {
+        background-color: rgb(161, 161, 161);
+        color: #fff;
+      }
+    }
+  }
+}
