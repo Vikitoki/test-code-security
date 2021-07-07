@@ -5,7 +5,7 @@ import {
   FETCH_HOME_ITEMS_LIST_SUCCESS,
 } from "../store/homeItems/action-variables";
 
-interface IHomeListItemData {
+export interface IHomeListItemData {
   [key: string]: string;
 }
 

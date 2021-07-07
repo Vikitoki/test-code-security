@@ -4,11 +4,18 @@ import { Formik, Form } from "formik";
 
 import PencilImage from "../../../images/pencil.svg";
 import CloseImage from "../../../images/close.svg";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { IHomeListItemData } from "../../../types/homeItems";
+import { FormControl } from "../FormControl/FormControl";
 
 export const HomeFormContainer: FC = () => {
-  const initialValues = {};
+  const { activeItem } = useTypedSelector((state) => state.homeItems);
 
-  const onSubmit = (values: any) => {};
+  const initialValues: IHomeListItemData = activeItem ? activeItem.data : {};
+
+  const onSubmit = (values: IHomeListItemData) => {
+    console.log(values);
+  };
 
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
@@ -16,21 +23,21 @@ export const HomeFormContainer: FC = () => {
         return (
           <Form className="form">
             <div className="form__items">
-              <div className="form__item">
-                <label className="form__label" htmlFor="#">
-                  Свойство 1
-                </label>
-                <input className="form__input" type="text" />
-              </div>
-              <div className="form__item">
-                <label className="form__label" htmlFor="#">
-                  Свойство 2
-                </label>
-                <input className="form__input" type="text" />
-              </div>
+              {activeItem
+                ? Object.keys(activeItem.data).map((item, index) => {
+                    return (
+                      <FormControl
+                        key={item}
+                        control="input"
+                        name={item}
+                        labelText={`Свойство ${index + 1}`}
+                      />
+                    );
+                  })
+                : null}
             </div>
             <div className="form__btns">
-              <button type="button" className="btn btn_white-outline">
+              <button type="submit" className="btn btn_white-outline">
                 Сохранить
               </button>
             </div>
