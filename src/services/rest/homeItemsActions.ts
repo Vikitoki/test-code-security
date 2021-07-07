@@ -1,5 +1,6 @@
 import { Dispatch } from "react";
 import {
+  changeActiveHomeItem,
   fetchHomeItemsListFailure,
   fetchHomeItemsListRequest,
   fetchHomeItemsListSuccess,
@@ -21,9 +22,14 @@ export const getHomeItems = () => {
 
       const data: IHomeListItem[] = await response.json();
       dispatch(fetchHomeItemsListSuccess(data));
-			
     } catch (error) {
       dispatch(fetchHomeItemsListFailure(error.message));
     }
+  };
+};
+
+export const getNewActiveHomeItem = (id: string) => {
+  return (disaptch: Dispatch<HomeItemsActions>) => {
+    disaptch(changeActiveHomeItem(id));
   };
 };

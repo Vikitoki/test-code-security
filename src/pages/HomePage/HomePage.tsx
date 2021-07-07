@@ -11,7 +11,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 export const HomePage: FC = () => {
   const dispatch = useDispatch();
-  const { error, homeList, loading } = useTypedSelector(
+  const { error, homeList, loading, activeItem } = useTypedSelector(
     (state) => state.homeItems
   );
 
@@ -36,8 +36,11 @@ export const HomePage: FC = () => {
                 <ul className="content-home-page__list">
                   {homeList.map((item) => {
                     return (
-                      <li>
-                        <HomeTab activeTab name={item.name} />
+                      <li key={item.name}>
+                        <HomeTab
+                          activeTab={item.name === activeItem?.name}
+                          tabInfo={item}
+                        />
                       </li>
                     );
                   })}

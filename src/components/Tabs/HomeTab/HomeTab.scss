@@ -21,6 +21,16 @@
     }
   }
 
+  &:disabled {
+    cursor: not-allowed;
+
+    @media (min-width: $md2 + px) {
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+
   &__text {
     display: block;
     width: 100%;

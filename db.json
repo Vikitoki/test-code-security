@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "id": "1",
       "name": "Object 1",
       "data": {
         "PropertyFirst": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem aspernatur omnis cumque, atque ipsum repellendus totam magni aliquam sunt ratione inventore! Quis distinctio aspernatur necessitatibus aperiam quisquam ipsum beatae ",
@@ -9,22 +10,25 @@
       }
     },
     {
+      "id": "2",
       "name": "Object 2",
       "data": {
-				"PropertyFirst": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem aspernatur omnis cumque, atque ipsum repellendus totam magni aliquam sunt ratione inventore! Quis distinctio aspernatur necessitatibus aperiam quisquam ipsum beatae ",
+        "PropertyFirst": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem aspernatur omnis cumque, atque ipsum repellendus totam magni aliquam sunt ratione inventore! Quis distinctio aspernatur necessitatibus aperiam quisquam ipsum beatae ",
         "PropertySecond": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem asper ",
         "PropertyThird": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem aspernatur omnis"
       }
     },
     {
+      "id": "3",
       "name": "Object 3",
       "data": {
-				"PropertyFirst": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem aspernatur omnis cumque, atque ipsum repellendus totam magni aliquam sunt ratione inventore! Quis distinctio aspernatur necessitatibus aperiam quisquam ipsum beatae ",
+        "PropertyFirst": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem aspernatur omnis cumque, atque ipsum repellendus totam magni aliquam sunt ratione inventore! Quis distinctio aspernatur necessitatibus aperiam quisquam ipsum beatae ",
         "PropertySecond": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem asper ",
         "PropertyThird": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem aspernatur omnis"
       }
     },
     {
+      "id": "4",
       "name": "Object 4",
       "data": {
         "PropertyFirst": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem aspernatur omnis cumque, atque ipsum repellendus totam magni aliquam sunt ratione inventore! Quis distinctio aspernatur necessitatibus aperiam quisquam ipsum beatae ",
@@ -33,6 +37,7 @@
       }
     },
     {
+      "id": "5",
       "name": "Object 5",
       "data": {
         "PropertyFirst": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, rem aspernatur omnis cumque, atque ipsum repellendus totam magni aliquam sunt ratione inventore! Quis distinctio aspernatur necessitatibus aperiam quisquam ipsum beatae ",

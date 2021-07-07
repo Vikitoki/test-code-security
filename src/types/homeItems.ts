@@ -10,6 +10,7 @@ interface IHomeListItemData {
 }
 
 export interface IHomeListItem {
+  id: string;
   name: string;
   data: IHomeListItemData;
 }
