@@ -1,6 +1,7 @@
 import { HomeItemsActions, HomeItemsState } from "../../types/homeItems";
 import {
   CHANGE_ACTIVE_HOME_ITEM,
+  CHANGE_INFO_TO_HOME_ITEM,
   FETCH_HOME_ITEMS_LIST_FAILURE,
   FETCH_HOME_ITEMS_LIST_REQUEST,
   FETCH_HOME_ITEMS_LIST_SUCCESS,
@@ -8,7 +9,7 @@ import {
 
 const initialState: HomeItemsState = {
   homeList: [],
-  activeItem: null,
+  activeItem: { id: "", name: "", data: {} },
   loading: false,
   error: "",
 };
@@ -51,6 +52,21 @@ export const homeItemsReducer = (
 
       return {
         ...state,
+      };
+    case CHANGE_INFO_TO_HOME_ITEM:
+      const modifiedActiveItem = {
+        ...state.activeItem,
+        data: action.payload,
+      };
+
+      const newHomeList = state.homeList.map((item) =>
+        item.id === modifiedActiveItem.id ? modifiedActiveItem : item
+      );
+
+      return {
+        ...state,
+        activeItem: modifiedActiveItem,
+        homeList: newHomeList,
       };
 
     default:

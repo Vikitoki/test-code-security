@@ -1,5 +1,6 @@
 import {
   CHANGE_ACTIVE_HOME_ITEM,
+  CHANGE_INFO_TO_HOME_ITEM,
   FETCH_HOME_ITEMS_LIST_FAILURE,
   FETCH_HOME_ITEMS_LIST_REQUEST,
   FETCH_HOME_ITEMS_LIST_SUCCESS,
@@ -17,7 +18,7 @@ export interface IHomeListItem {
 
 export interface HomeItemsState {
   homeList: IHomeListItem[];
-  activeItem: IHomeListItem | null;
+  activeItem: IHomeListItem;
   loading: boolean;
   error: string;
 }
@@ -36,13 +37,19 @@ interface FetchHomeItemsListSuccess {
   payload: IHomeListItem[];
 }
 
-interface ChangeActiveHomeItem {
+interface ChangeActiveHomeItemAction {
   type: typeof CHANGE_ACTIVE_HOME_ITEM;
   payload: string;
+}
+
+interface ChangeInfoToHomeItemAction {
+  type: typeof CHANGE_INFO_TO_HOME_ITEM;
+  payload: IHomeListItemData;
 }
 
 export type HomeItemsActions =
   | FetchHomeItemsListRequest
   | FetchHomeItemsListFailure
   | FetchHomeItemsListSuccess
-  | ChangeActiveHomeItem;
+  | ChangeActiveHomeItemAction
+  | ChangeInfoToHomeItemAction;

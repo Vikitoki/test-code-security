@@ -80,16 +80,22 @@
     &_textarea {
       min-height: 150px;
 
-			overflow: auto;
+      overflow: auto;
       resize: vertical;
 
-			&::-webkit-scrollbar {
-				display: none;
-			}
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     &:focus {
       border-color: rgb(161, 161, 161);
+    }
+
+    &:disabled {
+      background-color: lightskyblue;
+
+      color: #333;
     }
   }
 

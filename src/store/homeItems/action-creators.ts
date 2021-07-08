@@ -1,6 +1,11 @@
-import { HomeItemsActions, IHomeListItem } from "../../types/homeItems";
+import {
+  HomeItemsActions,
+  IHomeListItem,
+  IHomeListItemData,
+} from "../../types/homeItems";
 import {
   CHANGE_ACTIVE_HOME_ITEM,
+  CHANGE_INFO_TO_HOME_ITEM,
   FETCH_HOME_ITEMS_LIST_FAILURE,
   FETCH_HOME_ITEMS_LIST_REQUEST,
   FETCH_HOME_ITEMS_LIST_SUCCESS,
@@ -26,5 +31,12 @@ export const fetchHomeItemsListFailure = (
 
 export const changeActiveHomeItem = (payload: string): HomeItemsActions => ({
   type: CHANGE_ACTIVE_HOME_ITEM,
+  payload,
+});
+
+export const changeInfoToHomeItem = (
+  payload: IHomeListItemData
+): HomeItemsActions => ({
+  type: CHANGE_INFO_TO_HOME_ITEM,
   payload,
 });

@@ -31,6 +31,12 @@
         background-color: rgb(161, 161, 161);
         color: #fff;
       }
+
+      &:disabled {
+        background-color: rgb(161, 161, 161);
+
+        color: red;
+      }
     }
   }
 }

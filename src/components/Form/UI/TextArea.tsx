@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import { FC } from "react";
 
 interface InputProps {
-  [key: string]: string | ReactNode;
+  [key: string]: string | boolean | ReactNode;
   labelText?: string;
   name?: string;
 }
