@@ -1,6 +1,7 @@
 import {
   CHANGE_ACTIVE_HOME_ITEM,
   CHANGE_INFO_TO_HOME_ITEM,
+  CHANGE_SAVE_DATA_STATUS,
   FETCH_HOME_ITEMS_LIST_FAILURE,
   FETCH_HOME_ITEMS_LIST_REQUEST,
   FETCH_HOME_ITEMS_LIST_SUCCESS,
@@ -21,6 +22,7 @@ export interface HomeItemsState {
   activeItem: IHomeListItem;
   loading: boolean;
   error: string;
+  saveDataStatus: boolean;
 }
 
 interface FetchHomeItemsListRequest {
@@ -47,9 +49,14 @@ interface ChangeInfoToHomeItemAction {
   payload: IHomeListItemData;
 }
 
+interface ChangeSaveDataStatusAction {
+  type: typeof CHANGE_SAVE_DATA_STATUS;
+}
+
 export type HomeItemsActions =
   | FetchHomeItemsListRequest
   | FetchHomeItemsListFailure
   | FetchHomeItemsListSuccess
   | ChangeActiveHomeItemAction
-  | ChangeInfoToHomeItemAction;
+  | ChangeInfoToHomeItemAction
+  | ChangeSaveDataStatusAction;

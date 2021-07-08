@@ -2,6 +2,7 @@ import { HomeItemsActions, HomeItemsState } from "../../types/homeItems";
 import {
   CHANGE_ACTIVE_HOME_ITEM,
   CHANGE_INFO_TO_HOME_ITEM,
+  CHANGE_SAVE_DATA_STATUS,
   FETCH_HOME_ITEMS_LIST_FAILURE,
   FETCH_HOME_ITEMS_LIST_REQUEST,
   FETCH_HOME_ITEMS_LIST_SUCCESS,
@@ -12,6 +13,7 @@ const initialState: HomeItemsState = {
   activeItem: { id: "", name: "", data: {} },
   loading: false,
   error: "",
+  saveDataStatus: false,
 };
 
 export const homeItemsReducer = (
@@ -68,7 +70,11 @@ export const homeItemsReducer = (
         activeItem: modifiedActiveItem,
         homeList: newHomeList,
       };
-
+    case CHANGE_SAVE_DATA_STATUS:
+      return {
+        ...state,
+        saveDataStatus: !state.saveDataStatus,
+      };
     default:
       return state;
   }

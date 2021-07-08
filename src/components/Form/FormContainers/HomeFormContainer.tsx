@@ -9,8 +9,8 @@ import { IHomeListItemData } from "../../../types/homeItems";
 import { FormControl } from "../FormControl/FormControl";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { changeInfoToHomeItem } from "../../../store/homeItems/action-creators";
 import { useEffect } from "react";
+import { postNewHomeItems } from "../../../services/rest/homeItemsActions";
 
 export const HomeFormContainer: FC = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ export const HomeFormContainer: FC = () => {
 
   useEffect(() => {
     setInitialFormValues(activeItem.data);
+    setdDisabledState(true);
   }, [activeItem]);
 
   const initialValues: IHomeListItemData = initialFormValues;
@@ -29,7 +30,7 @@ export const HomeFormContainer: FC = () => {
   const onSubmit = (values: IHomeListItemData, { setTouched }: any) => {
     setTouched({});
     setdDisabledState((prev) => !prev);
-    dispatch(changeInfoToHomeItem(values));
+    dispatch(postNewHomeItems(values));
   };
 
   const btnSetHandler = () => {

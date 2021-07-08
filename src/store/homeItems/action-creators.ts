@@ -6,6 +6,7 @@ import {
 import {
   CHANGE_ACTIVE_HOME_ITEM,
   CHANGE_INFO_TO_HOME_ITEM,
+  CHANGE_SAVE_DATA_STATUS,
   FETCH_HOME_ITEMS_LIST_FAILURE,
   FETCH_HOME_ITEMS_LIST_REQUEST,
   FETCH_HOME_ITEMS_LIST_SUCCESS,
@@ -39,4 +40,8 @@ export const changeInfoToHomeItem = (
 ): HomeItemsActions => ({
   type: CHANGE_INFO_TO_HOME_ITEM,
   payload,
+});
+
+export const changeSaveDataStatus = (): HomeItemsActions => ({
+  type: CHANGE_SAVE_DATA_STATUS,
 });
